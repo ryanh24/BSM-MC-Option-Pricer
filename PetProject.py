@@ -36,7 +36,7 @@ def get_stock_data(ticker_symbol):
     plt.grid(True)
     returns = np.log(data['Close'] / data['Close'].shift(1)) #takes the logarithm of today's stock/ yesterday's for all stock data
     volatility = np.sqrt(252) * returns.std()
-    current_price = data['Close'][-1]#standardizes it from daily to annual
+    current_price = data['Close'].iloc[0][0]#standardizes it from daily to annual
     return volatility, current_price
 
 #BSM
